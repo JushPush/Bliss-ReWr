@@ -72,28 +72,4 @@ namespace Punji {
             //obj->Destroy();
         }
     };
-    /*
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <param name="width"></param>
-    /// <param name="height"></param>
-    /// <param name="title"></param>
-    /// <param name="fullscreen"></param>
-    /// <returns>Window Object</returns>
-    Window CreateWindow(int x, int y, int width, int height, std::string title, bool fullscreen);
-    bool InitWindow(Window& window);
-    void DestroyWindow(Window& window);
-
-    bool PollEvents(Window& window);
-
-    bool SetFullscreen(Window& window);
-
-    static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-    static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
-    static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
-    static void window_size_callback(GLFWwindow* window, int width, int height);
-    static void window_close_callback(GLFWwindow* window);*/
 }
