@@ -1,11 +1,7 @@
 # Bliss Engine
 [![CMake](https://github.com/EinKara/Bliss/actions/workflows/cmake.yml/badge.svg)](https://github.com/EinKara/Bliss/actions/workflows/cmake.yml)
 
-Cross-Platform and Open Source software framework build using GLFW and Vulkan
-
-## Features
-
-Stuff eventually
+Cross-Platform and Open Source software framework build using GLFW and Vulkan.
 
 ## Requirements
 

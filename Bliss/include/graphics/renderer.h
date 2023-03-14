@@ -2,7 +2,7 @@
 
 #include "entities/camera.h"
 
-namespace Punji {
+namespace Punji::Graphics {
 	class Renderer {
 	public:
 		Renderer();

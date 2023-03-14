@@ -8,7 +8,7 @@
 
 #include "renderer.h"
 
-namespace Punji {
+namespace Punji::Graphics {
     class Window {
     public:
         int x, y, width, height;

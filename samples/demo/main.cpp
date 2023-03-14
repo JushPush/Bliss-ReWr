@@ -5,7 +5,7 @@
 #include <math.h>
 
 int main(int argc, char* argv[]) {
-	Punji::Window window = Punji::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
+	Punji::Graphics::Window window = Punji::Graphics::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
 
 	//Punji::InitWindow(window);
 
