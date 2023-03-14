@@ -12,13 +12,21 @@ CMAKE_GENERATOR="Unix Makefiles"
 BUILD_TYPE="Release"
 CMAKE_OPTIONS="$CMAKE_OPTIONS"
 
+# Check if env. already configured
+[ -f BUILD ] && rm -rf BUILD
+[ -f build ] && rm -rf build
+
 # Create build script
-touch build && chmod +x build
-echo "#!/bin/bash" > build
-echo "" > build
-echo "cmake --build \"$BUILD_DIR\" --config \"$BUILD_TYPE\"" > build echo
+touch BUILD && chmod +x BUILD
+if [ -f BUILD ]
+    echo "#!/bin/bash" > BUILD
+    echo "" > BUILD
+    echo "echo \"Build\"" > BUILD echo
+    echo "" > BUILD
+    echo "cmake --build \"$BUILD_DIR\" --config \"$BUILD_TYPE\"" > BUILD echo
+fi
 
 # Create build dir
 cmake "$CMAKE_OPTIONS" -G "$CMAKE_GENERATOR" -B "$BUILD_DIR"
 
-echo "Run './build' to build"
+echo "Run './BUILD' to build"
