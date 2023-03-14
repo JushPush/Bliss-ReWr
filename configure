@@ -16,9 +16,9 @@ CMAKE_OPTIONS="$CMAKE_OPTIONS"
 touch build && chmod +x build
 echo "#!/bin/bash" > build
 echo "" > build
-echo "cmake --build $BUILD_DIR --config $BUILD_TYPE" > build
+echo "cmake --build \"$BUILD_DIR\" --config \"$BUILD_TYPE\"" > build echo
 
 # Create build dir
-cmake $CMAKE_OPTIONS -G $CMAKE_GENERATOR -B $BUILD_DIR
+cmake "$CMAKE_OPTIONS" -G "$CMAKE_GENERATOR" -B "$BUILD_DIR"
 
 echo "Run './build' to build"
