@@ -1,0 +1,24 @@
+#!/bin/bash
+
+<<IMPORTANT 
+
+Only use for release builds (Otherwise you'll spend a lot of time cleaning up files)
+
+IMPORTANT
+
+# Default Options
+BUILD_DIR="build"
+CMAKE_GENERATOR="Unix Makefiles"
+BUILD_TYPE="Release"
+CMAKE_OPTIONS="$CMAKE_OPTIONS"
+
+# Create build script
+touch build && chmod +x build
+echo "#!/bin/bash" > build
+echo "" > build
+echo "cmake --build $BUILD_DIR --config $BUILD_TYPE" > build
+
+# Create build dir
+cmake $CMAKE_OPTIONS -G $CMAKE_GENERATOR -B $BUILD_DIR
+
+echo "Run './build' to build"
