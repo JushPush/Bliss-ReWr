@@ -4,10 +4,16 @@
 #include <common/imgui/imgui.h>
 #include <math.h>
 
-int main(int argc, char* argv[]) {
-	Punji::Graphics::Window window = Punji::Graphics::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
+using namespace Punji;
+using namespace Punji::Graphics;
 
-	//Punji::InitWindow(window);
+struct {
+	Window mainWindow;
+} program;
+
+int main(int argc, char* argv[]) {
+	//Punji::Graphics::Window window = Punji::Graphics::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
+	program->mainWindow = Window(0,0,800,600,"AHH",false);
 
 	while (!glfwWindowShouldClose(window.getWindow()))
 	{
