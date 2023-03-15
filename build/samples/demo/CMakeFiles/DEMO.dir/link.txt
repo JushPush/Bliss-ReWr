@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/DEMO.dir/main.cpp.o -o DEMO   -L/home/kara/Bliss-ReWr/external/lib  -Wl,-rpath,/home/kara/Bliss-ReWr/external/lib:/home/kara/Bliss-ReWr/build/Bliss ../../Bliss/libBliss.so -lglfw3 -lGL -lX11 -lpthread -lvulkan 

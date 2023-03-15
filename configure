@@ -12,10 +12,6 @@ CMAKE_GENERATOR="Unix Makefiles"
 BUILD_TYPE="Release"
 CMAKE_OPTIONS="$CMAKE_OPTIONS"
 
-# Check if env. already configured
-[ -f BUILD ] && rm -rf BUILD
-[ -f build ] && rm -rf build
-
 # Create build script
 touch BUILD && chmod +x BUILD
 if [ -f BUILD ]

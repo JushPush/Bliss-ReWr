@@ -3,7 +3,7 @@ FILE(GLOB HEADS
 )
 
 set(FILES ${HEADS})
-set(SUBDIRECTORIES "imgui")
+set(SUBDIRECTORIES "")
 set(RELATIVE_PATH "include/common")
 
 #Add all subdirectories 

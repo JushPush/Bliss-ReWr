@@ -11,7 +11,7 @@ public:
 	glm::vec3 rot;
 	glm::vec3 scale;
 
-	glm::mat4 GetModel() const
+	/*glm::mat4 GetModel() const
 	{
 		glm::mat4 posMat = glm::translate(pos);
 		glm::mat4 scaleMat = glm::scale(scale);
@@ -21,5 +21,5 @@ public:
 		glm::mat4 rotMat = rotX * rotY * rotZ;
 
 		return posMat * rotMat * scaleMat;
-	}
+	}*/
 };

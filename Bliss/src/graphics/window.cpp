@@ -1,18 +1,11 @@
 #include <graphics/window.h>
 
-namespace Punji {
+#include <cstring>
 
-    Window::Window() {}
-
-    Window::Window(int x, int y, int width, int height, std::string title, bool fullscreen) {
-        this->x = x;
-        this->y = y;
-        this->width = width;
-        this->height = height;
-        this->title = title;
-        this->fullscreen = fullscreen;
-
-        Init();
+namespace Punji::Graphics {
+    static void glfwError(int id, const char* description)
+    {
+        std::cout << description << std::endl;
     }
 
     Window::~Window() {
@@ -20,14 +13,29 @@ namespace Punji {
     }
 
     bool Window::Init() {
+        glfwSetErrorCallback(glfwError);
         if (!glfwInit()) {
             std::cout << "GLFW failed to initialize." << std::endl;
             glfwTerminate();
             return false;
         }
 
+        if (!glfwVulkanSupported())
+        {
+            std::cout << "Vulkan not available." << std::endl;
+            return false;
+        }
+
+        //data = bl_VulkanData;
+
+        VulkanInit(data);
+        //InitVulkan();
+
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+
+        // https://www.glfw.org/docs/3.3/vulkan_guide.html
+
 
         monitor = glfwGetPrimaryMonitor();
         if (monitor == NULL) {
@@ -35,8 +43,8 @@ namespace Punji {
             glfwTerminate();
             return false;
         }
-
-        if (fullscreen) {
+        
+        if (_fullscreen) {
             const GLFWvidmode* mode = glfwGetVideoMode(monitor);
 
             glfwWindowHint(GLFW_RED_BITS, mode->redBits);
@@ -44,7 +52,7 @@ namespace Punji {
             glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);
             glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
 
-            window = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, nullptr);
+            window = glfwCreateWindow(mode->width, mode->height, _title.c_str(), monitor, nullptr);
             if (window == NULL) {
                 std::cout << "Failed to create window." << std::endl;
                 glfwTerminate();
@@ -54,7 +62,7 @@ namespace Punji {
             fs_current = true;
         }
         else {
-            window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+            window = glfwCreateWindow(_width, _height, _title.c_str(), nullptr, nullptr);
             if (window == NULL) {
                 std::cout << "Failed to create window." << std::endl;
                 glfwTerminate();
@@ -62,10 +70,19 @@ namespace Punji {
             }
         }
 
-        glfwMakeContextCurrent(window);
+        window = glfwCreateWindow(_width, _height, _title.c_str(), nullptr, nullptr);
+        if (window == NULL) {
+            std::cout << "Failed to create window." << std::endl;
+            glfwTerminate();
+            return false;
+        }
 
-        renderer = Renderer();
+        //glfwMakeContextCurrent(window);
+
+        //renderer = Renderer();
         running = true;
+
+        return true;
     }
 
     bool Window::SetFullscreen() {
@@ -77,7 +94,7 @@ namespace Punji {
             glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);
             glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
 
-            window = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, nullptr);
+            window = glfwCreateWindow(mode->width, mode->height, _title.c_str(), monitor, nullptr);
             if (window == NULL) {
                 std::cout << "Failed to create window." << std::endl;
                 glfwTerminate();
@@ -88,16 +105,25 @@ namespace Punji {
             const GLFWvidmode* mode = glfwGetVideoMode(monitor);
             glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 
-            width = mode->width;
-            height = mode->height;
+            _width = mode->width;
+            _height = mode->height;
         }
         fs_current = true;
+        return true;
     }
 
     void Window::Destroy() {
         running = false;
         glfwDestroyWindow(window);
         glfwTerminate();
+    }
+
+    void Window::InitVulkan() {
+        
+    }
+
+    void Window::ClearBuffer() {
+        //glfwSwapBuffers(window);
     }
 
     /*Window CreateWindow(int x, int y, int width, int height, std::string title, bool fullscreen) {

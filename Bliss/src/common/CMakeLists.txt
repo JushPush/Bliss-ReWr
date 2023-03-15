@@ -4,7 +4,7 @@ FILE(GLOB SOURCES
 )
 
 set(FILES ${SOURCES})
-set(SUBDIRECTORIES "imgui")
+set(SUBDIRECTORIES "")
 set(RELATIVE_PATH "src/common")
 
 #Add all subdirectories 

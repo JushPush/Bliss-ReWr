@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+if [ -d build ]
+then
+    rm -rf build
+fi
+
+cmake -B build
+cmake --build build
+
+echo ""
+echo "Running"
+
+./build/samples/demo/DEMO
+
+echo "Closed"

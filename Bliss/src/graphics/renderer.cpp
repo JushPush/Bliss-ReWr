@@ -1,6 +1,6 @@
 #include <graphics/renderer.h>
 
-namespace Punji {
+namespace Punji::Graphics {
 	Renderer::Renderer() {
 
 	}
