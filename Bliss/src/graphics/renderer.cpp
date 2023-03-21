@@ -4,6 +4,11 @@ namespace Punji::Graphics {
 	Renderer::Renderer() {
 
 	}
+	
+	/// @brief Unfinished
+	void Renderer::SetPixel() {
+
+	}
 
 	Renderer::~Renderer() {
 
