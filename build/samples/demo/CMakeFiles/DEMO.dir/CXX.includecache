@@ -12,14 +12,6 @@ iostream
 graphics/window.h
 ../Bliss/include/graphics/window.h
 
-../Bliss/include/graphics/api/api_vulkan.h
-iostream
--
-vector
--
-vulkan/vulkan.h
--
-
 ../Bliss/include/graphics/entities/camera.h
 glm/glm.hpp
 -
@@ -43,8 +35,6 @@ GLFW/glfw3.h
 -
 renderer.h
 ../Bliss/include/graphics/renderer.h
-api/api_vulkan.h
-../Bliss/include/graphics/api/api_vulkan.h
 
 ../external/include/GLFW/glfw3.h
 stddef.h

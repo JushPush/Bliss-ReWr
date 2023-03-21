@@ -3,7 +3,6 @@
 
 samples/demo/CMakeFiles/DEMO.dir/main.cpp.o
  ../Bliss/include/Bliss.h
- ../Bliss/include/graphics/api/api_vulkan.h
  ../Bliss/include/graphics/entities/camera.h
  ../Bliss/include/graphics/entities/entity.h
  ../Bliss/include/graphics/renderer.h
