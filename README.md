@@ -1,5 +1,5 @@
 # Bliss Engine
-[![CMake](https://github.com/EinKara/Bliss/actions/workflows/cmake.yml/badge.svg)](https://github.com/EinKara/Bliss/actions/workflows/cmake.yml)
+[![CMake](https://github.com/EinKara/Bliss-ReWr/actions/workflows/build.yml/badge.svg)](https://github.com/EinKara/Bliss-ReWr/actions/workflows/build.yml)
 
 Cross-Platform and Open Source software framework build using GLFW and Vulkan.
 
