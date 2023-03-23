@@ -1,10 +1,11 @@
-FILE(GLOB HEADS
-    *.h
+FILE(GLOB SOURCES
+    *.cpp
+	*.c
 )
 
-set(FILES ${HEADS})
-set(SUBDIRECTORIES "common;graphics;engine")
-set(RELATIVE_PATH "include")
+set(FILES ${SOURCES})
+set(SUBDIRECTORIES "entities")
+set(RELATIVE_PATH "src/engine")
 
 #Add all subdirectories 
 foreach(VAR ${SUBDIRECTORIES})

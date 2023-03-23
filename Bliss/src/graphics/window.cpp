@@ -53,6 +53,9 @@ namespace Punji::Graphics {
             return false;
         }*/
         glfwMakeContextCurrent(window);
+
+        gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+        gladLoadGL();
         glfwSwapInterval(0);
 
         //renderer = Renderer();

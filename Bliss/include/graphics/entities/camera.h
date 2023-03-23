@@ -2,23 +2,23 @@
 
 #include <glm/glm.hpp>
 
-#include "entity.h"
+#include "../../engine/entities/entity.h"
 
 namespace Punji {
-	class Camera : public Entity {
+	class Camera : public Punji::Engine::Entity {
 	public:
-		Camera();
+		Camera() {}
 
 		void Init() {}
 		void Update() {}
 		void Render() {}
-		void Destroy() {}
+		//void Destroy() {}
 
-		~Camera();
+		~Camera() {}
 
 		glm::vec3 pos;
 		glm::vec3 forward;
 		glm::vec3 up;
-		glm::vec3 projection;
+		glm::mat4 projection;
 	};
 }
