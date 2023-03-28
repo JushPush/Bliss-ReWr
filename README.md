@@ -3,6 +3,8 @@
 
 Cross-Platform and Open Source software framework build using GLFW and Vulkan.
 
+Project structure is currently a mess.
+
 ## Requirements
 
 | Library                                           | Download                                  |

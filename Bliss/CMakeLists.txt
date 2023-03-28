@@ -43,8 +43,7 @@ generate_export_header("${PROJECT_NAME}")
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/bliss_export.h" DESTINATION "include")
 
 
-add_subdirectory("include")
-add_subdirectory("src")
+add_subdirectory("test/src")
 
 set(Bliss_CONFIG_DIR "lib/cmake/${PROJECT_NAME}")
 configure_file("${Bliss_SOURCE_DIR}/cmake/BlissConfig.cmake.in" "${Bliss_BINARY_DIR}/${Bliss_CONFIG_DIR}/BlissConfig.cmake")
