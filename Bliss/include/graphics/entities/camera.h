@@ -1,3 +1,4 @@
+#pragma ACME path ./graphics/entities
 #pragma once
 
 #include <glm/glm.hpp>

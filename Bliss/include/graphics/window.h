@@ -31,7 +31,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "renderer.h"
+//#include "renderer.h"
 
 namespace Punji::Graphics {
     class Window {
@@ -87,7 +87,7 @@ namespace Punji::Graphics {
         bool resizable = true;
         bool fs_current = false;
 
-        Renderer renderer;
+        //Renderer renderer;
 
         GLFWwindow* window;
         GLFWmonitor* monitor;

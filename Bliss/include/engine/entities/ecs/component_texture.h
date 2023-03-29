@@ -6,5 +6,5 @@ namespace Punji::Engine {
     class TextureComponent : Component {
     public:
         TextureComponent();
-    }
+    };
 }

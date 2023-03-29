@@ -1,3 +1,5 @@
+#pragma ACME path ./engine/entities
+
 #pragma once
 
 #include <vector>
@@ -58,3 +60,5 @@ namespace Punji::Engine
         std::vector<Component*> components;
     };
 }
+
+#include "ecs/ecs.h"

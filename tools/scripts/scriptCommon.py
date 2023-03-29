@@ -1,4 +1,13 @@
 import os
 import sys
 
-projPath = os.path.dirname(os.path.dirname(os.path.realpath( os.path.dirname(sys.argv[0]))))
+# Set directory to script dir (Prevents issues if executed from a different location)
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+# Get Project Directory (Just goes back)
+os.chdir('../../')
+
+class Globals:
+    build_folder = "build"
+
+    root_dir = os.getcwd()
+    build_dir = os.path.join(root_dir, build_folder)

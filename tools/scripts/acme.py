@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+'''
+    Modified ACME script for support with removing "#pragma once"
+'''
+
 #
 #   This file is part of Corrade.
 #
@@ -215,6 +219,9 @@ copyright_rc = re.compile(r'^\s+Copyright © \d{4}.+$')
 blockcomment_start_rx = re.compile(r'^\s*/\*.*\s*$')
 blockcomment_end_rx = re.compile(r'^\s*.*\*/\s*$')
 acme_pragma_rx = re.compile(r'^#pragma\s+ACME\s+(?P<what>[^\s]+)\s*(?P<value>[^\s]?.*)\s*$')
+pragma_once_rx = re.compile(r'^#pragma\s+once$')
+
+newline_rx = re.compile(r'^\s+\nS')
 
 def acme(toplevel_file, output) -> List[str]:
     base_directory = os.path.dirname(toplevel_file)
@@ -564,7 +571,7 @@ def acme(toplevel_file, output) -> List[str]:
                 # supply a configure.h.cmake template instead of configure.h
                 # that may have various platform-specific defines baked in
                 # already.
-                if cmakedefine_rx.match(line): continue;
+                if cmakedefine_rx.match(line) or pragma_once_rx.match(line): continue;
 
                 # Something else, copy verbatim to the output. Strip the
                 # trailing comment, if requested
