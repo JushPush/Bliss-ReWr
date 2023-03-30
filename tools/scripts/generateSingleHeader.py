@@ -121,7 +121,7 @@ def HeaderAmalgamate():
     recursive = True
 
     acme_header_filename = "Bliss.h"
-    path_to_acme_header = os.path.join(os.path.join(Globals.root_dir, "Bliss/include"), acme_header_filename)
+    path_to_acme_header = os.path.join(os.path.join(Globals.root_dir, "Bliss/src"), acme_header_filename)
     #with open(os.path.join(scripts_dir, "acme.py")) as acme:
         #exec(acme.read())
     #subprocess.run(".{} {} -o {}".format(os.path.join(scripts_dir, "acme.py"), path_to_acme_header, os.path.join(output_dir, output_file)))
