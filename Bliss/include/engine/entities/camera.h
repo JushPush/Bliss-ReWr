@@ -1,11 +1,11 @@
-#pragma ACME path ./graphics/entities
+#pragma ACME path ./engine/entities
 #pragma once
 
 #include <glm/glm.hpp>
 
-#include "../../engine/entities/entity.h"
+#include "entity.h"
 
-namespace Punji {
+namespace Punji::Engine {
 	class Camera : public Punji::Engine::Entity {
 	public:
 		Camera() {}

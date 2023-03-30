@@ -1,7 +1,5 @@
-#include <GLFW/glfw3.h>
 #include <cstring>
 #include <fstream>
-#include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 #include <iostream>
@@ -33,6 +31,9 @@
 */
 
 #define GLFW_INCLUDE_NONE
+
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Punji::Graphics {
     class Window {
@@ -156,8 +157,23 @@ namespace Punji::Graphics {
     private:
         std::vector<Component*> components;
     };
-}
-struct OBJIndex
+
+	class Camera : public Entity {
+	public:
+		Camera() {}
+
+		void Init() {}
+		void Update() {}
+		void Render() {}
+
+		~Camera() {}
+
+		glm::vec3 pos;
+		glm::vec3 forward;
+		glm::vec3 up;
+		glm::mat4 projection;
+	};
+}struct OBJIndex
 {
     unsigned int vertexIndex;
     unsigned int uvIndex;
@@ -223,24 +239,10 @@ namespace Punji::Engine {
 
         void Render();
     };
-}namespace Punji {
-	class Camera : public Punji::Engine::Entity {
-	public:
-		Camera() {}
-
-		void Init() {}
-		void Update() {}
-		void Render() {}
-
-		~Camera() {}
-
-		glm::vec3 pos;
-		glm::vec3 forward;
-		glm::vec3 up;
-		glm::mat4 projection;
-	};
 }namespace Punji::Engine
 {
+    using namespace Punji;
+
     class TransformComponent : public Component {
     public:
         TransformComponent() {}
@@ -297,130 +299,5 @@ namespace Punji::Engine {
     class TextureComponent : Component {
     public:
         TextureComponent();
-    };
-}namespace Punji::Engine
-{
-    class Component;
-    class Entity;
-
-    class Component {
-    public:
-        virtual ~Component() = default;
-        Entity* entity;
-    };
-
-    class Entity {
-    public:
-        virtual void Init() {}
-        virtual void Update() {}
-        virtual void Render() {}
-
-        template<typename T, typename... Args>
-        T* addComponent(Args&&... args) {
-            T* component = new T(std::forward<Args>(args)...);
-            component->entity = this;
-            components.emplace_back(component);
-            return component;
-        }
-
-        template<typename T>
-        T* addComponent() {
-            T* component = new T();
-            component->entity = this;
-            components.emplace_back(component);
-            return component;
-        }
-
-        template<typename T>
-        T* getComponent() const {
-            for (auto component : components) {
-                if (dynamic_cast<T*>(component)) {
-                    return static_cast<T*>(component);
-                }
-            }
-            return nullptr;
-        }
-
-        void Destroy() {
-            for (auto component : components) {
-                component->entity = nullptr;
-                delete component;
-            }
-            components.clear();
-        }
-
-    private:
-        std::vector<Component*> components;
-    };
-}
-namespace Punji {
-	class Camera : public Punji::Engine::Entity {
-	public:
-		Camera() {}
-
-		void Init() {}
-		void Update() {}
-		void Render() {}
-
-		~Camera() {}
-
-		glm::vec3 pos;
-		glm::vec3 forward;
-		glm::vec3 up;
-		glm::mat4 projection;
-	};
-}namespace Punji::Engine
-{
-    class Component;
-    class Entity;
-
-    class Component {
-    public:
-        virtual ~Component() = default;
-        Entity* entity;
-    };
-
-    class Entity {
-    public:
-        virtual void Init() {}
-        virtual void Update() {}
-        virtual void Render() {}
-
-        template<typename T, typename... Args>
-        T* addComponent(Args&&... args) {
-            T* component = new T(std::forward<Args>(args)...);
-            component->entity = this;
-            components.emplace_back(component);
-            return component;
-        }
-
-        template<typename T>
-        T* addComponent() {
-            T* component = new T();
-            component->entity = this;
-            components.emplace_back(component);
-            return component;
-        }
-
-        template<typename T>
-        T* getComponent() const {
-            for (auto component : components) {
-                if (dynamic_cast<T*>(component)) {
-                    return static_cast<T*>(component);
-                }
-            }
-            return nullptr;
-        }
-
-        void Destroy() {
-            for (auto component : components) {
-                component->entity = nullptr;
-                delete component;
-            }
-            components.clear();
-        }
-
-    private:
-        std::vector<Component*> components;
     };
 }

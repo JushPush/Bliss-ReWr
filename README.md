@@ -15,6 +15,8 @@ Project structure is currently a mess.
 
 ## Building
 
+Python 3 is required for most of the build scripts.
+
 Configure Build Environment
 
 ```console
@@ -42,16 +44,6 @@ Window demoWindow;
 
 int main()
 {
-	demoWindow = CreateWindow(0,0,800,600,"Window Title", false);
-	InitWindow(demoWindow);
-
-	while (demoWindow.running) 
-	{
-		CullEvent(demoWindow);
-	}
-
-	DestroyWindow(demoWindow);
-
-	return 0;
+	
 }
 ```

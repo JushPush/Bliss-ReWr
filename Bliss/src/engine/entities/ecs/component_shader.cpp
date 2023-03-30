@@ -1,4 +1,4 @@
-#include <engine/entities/ecs/component_shader.h>
+#include "component_shader.h"
 
 namespace Punji::Engine {
     ShaderComponent::ShaderComponent(std::string fileName) {

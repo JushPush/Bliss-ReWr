@@ -1,11 +1,5 @@
 #include <Bliss.h>
 
-#include <math.h>
-
-#include <engine/entities/ecs/component_mesh.h>
-#include <engine/entities/ecs/component_transform.h>
-#include <engine/entities/ecs/component_shader.h>
-
 using namespace Punji;
 using namespace Punji::Graphics;
 using namespace Punji::Engine;

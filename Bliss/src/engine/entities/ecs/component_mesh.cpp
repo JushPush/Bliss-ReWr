@@ -1,4 +1,4 @@
-#include <engine/entities/ecs/component_mesh.h>
+#include "component_mesh.h"
 
 namespace Punji::Engine {
     MeshComponent::MeshComponent(std::string fileName)

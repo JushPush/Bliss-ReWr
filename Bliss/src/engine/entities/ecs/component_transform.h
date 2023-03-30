@@ -1,10 +1,8 @@
 #pragma once
 
-#include "../entity.h"
-
 #include <glm/glm.hpp>
 
-#include "../camera.h"
+#include "../entity.h"
 
 namespace Punji::Engine
 {

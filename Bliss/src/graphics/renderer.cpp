@@ -1,4 +1,4 @@
-#include <graphics/renderer.h>
+#include "renderer.h"
 
 namespace Punji::Graphics {
 	Renderer::Renderer() {
@@ -14,7 +14,7 @@ namespace Punji::Graphics {
 
 	}
 
-	void Renderer::SetCamera(Camera* camera) {
+	/*void Renderer::SetCamera(Camera* camera) {
 		this->_camera = camera;
-	}
+	}*/
 }

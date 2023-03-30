@@ -38,11 +38,11 @@ set_target_properties("${PROJECT_NAME}" PROPERTIES
 	RELWITHDEBINFO_POSTFIX "${STATIC_POSTFIX}-rd"
 )
 
-include("GenerateExportHeader")
-generate_export_header("${PROJECT_NAME}")
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/bliss_export.h" DESTINATION "include")
+#include("GenerateExportHeader")
+#generate_export_header("${PROJECT_NAME}")
+#install(FILES "${CMAKE_CURRENT_BINARY_DIR}/bliss_export.h" DESTINATION "include")
 
-add_subdirectory("include")
+#add_subdirectory("include")
 add_subdirectory("src")
 
 set(Bliss_CONFIG_DIR "lib/cmake/${PROJECT_NAME}")
