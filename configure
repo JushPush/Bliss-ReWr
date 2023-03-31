@@ -1,28 +1,91 @@
 #!/bin/bash
 
-<<IMPORTANT 
-
-Only use for release builds (Otherwise you'll spend a lot of time cleaning up files)
-
-IMPORTANT
-
 # Default Options
 BUILD_DIR="build"
 CMAKE_GENERATOR="Unix Makefiles"
 BUILD_TYPE="Release"
 CMAKE_OPTIONS="$CMAKE_OPTIONS"
 
-# Create build script
-touch BUILD && chmod +x BUILD
-if [ -f BUILD ]
-    echo "#!/bin/bash" > BUILD
-    echo "" > BUILD
-    echo "echo \"Build\"" > BUILD echo
-    echo "" > BUILD
-    echo "cmake --build \"$BUILD_DIR\" --config \"$BUILD_TYPE\"" > BUILD echo
+REQUIRED_PKGS=( python3 python3-pip cmake )
+
+function gen_script()
+{
+    cat > BUILD <<EOF
+#!/bin/bash
+
+function usage()
+{
+    echo "Build command arguments"
+    echo ""
+    echo "./builtTemplate"
+    echo "-h --help     | Gives list of arguments"
+    echo "-r --run      | Only runs the demo program"
+    echo "-b --build    | Only builds"
+    echo ""
+}
+
+while [ "\$1" != "" ]; do
+    PARAM=\`echo \$1 | awk -F= '{print \$1}'\`
+    VALUE=\`echo \$1 | awk -F= '{print \$2}'\`
+    case \$PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        -r | --run)
+            ./build/samples/demo/DEMO
+            ;;
+        -b | --build)
+            ./tools/scripts/buildAndTest.py
+            ;;
+        *)
+            echo "ERROR: unknown parameter \"\$PARAM\""
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+if [ "\$1" == "" ]
+then
+    ./tools/scripts/buildAndTest.py
 fi
+EOF
+    chmod +x BUILD
+}
+
+function check_for_requirements()
+{
+    echo "Checking packages..."
+    for pkg in ${REQUIRED_PKGS[@]}; do
+        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $pkg|grep "install ok installed")
+        if [ "" = "$PKG_OK" ]; then
+            echo "[❌] $pkg is not installed! This is required for building!"
+            read -r -p "Would you like to Install $pkg? [y/N] " response
+            response=${response,,} # tolower
+            if [[ "$response" =~ ^(yes|y)$ ]]; then
+                sudo apt-get --yes install $pkg
+            else
+                echo "exiting"
+                exit
+            fi
+        else
+            echo "[🟢] $pkg found"
+        fi
+    done
+
+    pip3 install -r requirements.txt
+
+    echo "[🟢] Packages installed I think"
+}
+
+check_for_requirements
+
+# Create build script
+gen_script
 
 # Create build dir
-cmake "$CMAKE_OPTIONS" -G "$CMAKE_GENERATOR" -B "$BUILD_DIR"
+#cmake "$CMAKE_OPTIONS" -G "$CMAKE_GENERATOR" -B "$BUILD_DIR"
 
 echo "Run './BUILD' to build"
