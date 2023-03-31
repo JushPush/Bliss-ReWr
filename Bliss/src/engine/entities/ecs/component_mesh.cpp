@@ -1,5 +1,7 @@
 #include "component_mesh.h"
 
+#include <iostream>
+
 namespace Punji::Engine {
     MeshComponent::MeshComponent(std::string fileName)
     {

@@ -374,7 +374,7 @@ def acme(toplevel_file, output) -> List[str]:
                         branch_stack += [[True, push_value, len(out)]]
                         # If the new node doesn't affect visibility, print it
                         if branch_stack[-1][1] is None:
-                            out += ['{}#{} {}{}\n'.format(indent, what, value, comment)]
+                            out += ['\n{}#{} {}{}\n'.format(indent, what, value, comment)]
 
                     elif what == 'elif':
                         assert len(branch_stack) >= 2

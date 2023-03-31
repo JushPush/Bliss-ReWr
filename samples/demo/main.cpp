@@ -13,8 +13,12 @@ int main(int argc, char* argv[]) {
 	Entity* entityTST = new Entity();
 
 	entityTST->addComponent<TransformComponent>();
-	entityTST->addComponent<ShaderComponent>((std::string)"res/basicShader");
-	entityTST->addComponent<MeshComponent>((std::string)"res/teapot.obj");
+
+	entityTST->getComponent<TransformComponent>()->pos.z -= 1;
+
+	entityTST->addComponent<TextureComponent>((std::string)"./res/bricks.jpg");
+	entityTST->addComponent<ShaderComponent>((std::string)"./res/basicShader");
+	entityTST->addComponent<MeshComponent>((std::string)"./res/teapot.obj");
 
 	while (!mainWindow.ShouldClose())
 	{
@@ -22,9 +26,12 @@ int main(int argc, char* argv[]) {
 		glfwPollEvents();
 
 		entityTST->getComponent<ShaderComponent>()->Bind();
+		entityTST->getComponent<TextureComponent>()->Bind();
 		entityTST->getComponent<ShaderComponent>()->Update(camera);
 		entityTST->getComponent<MeshComponent>()->Render();
 	}
+
+	entityTST->getComponent<TextureComponent>()->Unload();
 
 	mainWindow.Destroy();
 

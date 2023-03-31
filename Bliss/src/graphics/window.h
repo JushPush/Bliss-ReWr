@@ -49,7 +49,7 @@ namespace Punji::Graphics {
         bool SetFullscreen();
 
         /// @brief Does a thing
-        void SwapBuffers() { glfwSwapBuffers(window); }
+        void SwapBuffers() { glfwSwapBuffers(window); glClearColor(0.0f, 0.0f, 0.0f, 1.0f ); glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); glLoadIdentity(); }
 
         /// @brief Create Event
         virtual void OnCreate() {}
