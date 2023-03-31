@@ -25,8 +25,8 @@ int main(int argc, char* argv[]) {
 		mainWindow.SwapBuffers();
 		glfwPollEvents();
 
-		entityTST->getComponent<ShaderComponent>()->Bind();
 		entityTST->getComponent<TextureComponent>()->Bind();
+		entityTST->getComponent<ShaderComponent>()->Bind();
 		entityTST->getComponent<ShaderComponent>()->Update(camera);
 		entityTST->getComponent<MeshComponent>()->Render();
 	}

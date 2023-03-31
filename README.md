@@ -5,45 +5,38 @@ Cross-Platform and Open Source software framework build using GLFW and Vulkan.
 
 Project structure is currently a mess.
 
-## Requirements
+# Building
 
-| Library                                           | Download                                  |
-| ------------------------------------------------- | ----------------------------------------- |
-| **[GLFW](https://www.glfw.org/)**                 | ```$ ./scripts/requirements.sh```         |
-| **[glad](https://glad.dav1d.de/)**                | **[Mirror](https://glad.dav1d.de/)**      |
-| **[ASIO (boost)](https://think-async.com/Asio/)** | ```$ ./scripts/requirements.sh```         |
+## Setting Up Build Environment / Building
 
-## Building
-
-Python 3 is required for most of the build scripts.
-
-Configure Build Environment
+<details open>
+<summary>Linux</summary>
+</br>
 
 ```console
-$ ./configure
+$ ./configure       # This will create a new script called "BUILD".
+...
+
+$ ./BUILD -b        # Builds the library.
+...
+
+$ ./BUILD -h        # Returns a list of arguments that can be used
+...
 ```
+</details>
 
-Assuming the build directory has not been modified...
+---
+</br>
 
-```console
-$ cmake --build build
-```
-
-Building will generate a demo executable, located in build/bin. 
-
-## Using
-
-Usage is fairly simple. For simplicity, window data is carried in a "Window" struct.
-
-One example can be found in src/demo
+# Documentation
+</br>
 
 ```cpp
 #include <Bliss.h>
 
-Window demoWindow;
-
 int main()
 {
-	
+	// Do thingy
 }
 ```
+---

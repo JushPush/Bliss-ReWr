@@ -33,8 +33,3 @@ while [ "$1" != "" ]; do
     esac
     shift
 done
-
-if [ "$1" == "" ]
-then
-    ./tools/scripts/buildAndTest.py
-fi
