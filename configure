@@ -6,7 +6,12 @@ CMAKE_GENERATOR="Unix Makefiles"
 BUILD_TYPE="Release"
 CMAKE_OPTIONS="$CMAKE_OPTIONS"
 
-REQUIRED_PKGS=( python3 python3-pip cmake )
+REQUIRED_PKGS=( python3 
+                python3-pip 
+                cmake 
+                libboost-dev 
+                libasio-dev
+                )
 
 function gen_script()
 {
@@ -34,9 +39,11 @@ while [ "\$1" != "" ]; do
             ;;
         -r | --run)
             ./build/samples/demo/DEMO
+            exit
             ;;
         -b | --build)
             ./tools/scripts/buildAndTest.py
+            exit
             ;;
         *)
             echo "ERROR: unknown parameter \"\$PARAM\""
@@ -46,12 +53,17 @@ while [ "\$1" != "" ]; do
     esac
     shift
 done
+
+if [ "\$1" == "" ]; then
+    ./tools/scripts/buildAndTest.py
+fi
 EOF
     chmod +x BUILD
 }
 
 function check_for_requirements()
 {
+    sudo apt-get update
     echo "Checking packages..."
     for pkg in ${REQUIRED_PKGS[@]}; do
         PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $pkg|grep "install ok installed")

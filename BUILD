@@ -21,9 +21,11 @@ while [ "$1" != "" ]; do
             ;;
         -r | --run)
             ./build/samples/demo/DEMO
+            exit
             ;;
         -b | --build)
             ./tools/scripts/buildAndTest.py
+            exit
             ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
@@ -33,3 +35,7 @@ while [ "$1" != "" ]; do
     esac
     shift
 done
+
+if [ "$1" == "" ]; then
+    ./tools/scripts/buildAndTest.py
+fi

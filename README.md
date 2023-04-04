@@ -1,7 +1,7 @@
 # Bliss Engine
 [![CMake](https://github.com/EinKara/Bliss-ReWr/actions/workflows/build.yml/badge.svg)](https://github.com/EinKara/Bliss-ReWr/actions/workflows/build.yml)
 
-Cross-Platform and Open Source software framework build using GLFW and Vulkan.
+Cross-Platform and Open Source software framework build using GLFW.
 
 Project structure is currently a mess.
 
@@ -9,8 +9,7 @@ Project structure is currently a mess.
 
 ## Setting Up Build Environment / Building
 
-<details open>
-<summary>Linux</summary>
+<details open><summary>Linux</summary>
 </br>
 
 ```console
