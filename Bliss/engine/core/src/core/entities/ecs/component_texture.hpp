@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma ACME path engine/entities/ecs
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -10,9 +8,10 @@
 
 #include "stb_image.h"
 
-#include "../entity.h"
+#include "../entity.hpp"
 
-namespace Punji::Engine {
+namespace Punji::Core
+{
     class TextureComponent : public Component {
     public:
         TextureComponent(std::string fileName);

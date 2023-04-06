@@ -1,12 +1,10 @@
 #pragma once
 
-#pragma ACME path engine/entities
-
-#include <glm/glm.hpp>
 #include <vector>
-#include <unordered_map>
+#include <string>
+#include <glm/glm.hpp>
 
-namespace Punji::Engine
+namespace Punji::Core
 {
     class Component;
     class Entity;

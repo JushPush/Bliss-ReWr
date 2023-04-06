@@ -29,7 +29,7 @@
 
 #pragma ACME comments off
 
-#pragma ACME path .
+#pragma ACME path 
 
 #include "common/common.h"
 #include "graphics/graphics.h"

@@ -49,6 +49,8 @@ one_or_something_rx = re.compile(r'\b1 \|\| (0|1|!?defined\([^)]+\)|!?\()')
 something_or_one_rx = re.compile(r'(0|1|!?defined\([^)]+\)|\)) \|\| 1')
 alone_defined_rx = re.compile(r'^(?P<not>!)?defined\((?P<name>[^)]+)\)$')
 
+files_to_skip = []
+
 def normalize_expression(expression) -> Tuple[str, str]:
     match = alone_defined_rx.match(expression)
     if match:
@@ -468,9 +470,13 @@ def acme(toplevel_file, output) -> List[str]:
 
                 # Include
                 match = include_rx.match(line)
+
+                fileCheckSuccess = False
+
                 if match:
                     include:str = match.group('file')
                     is_local = match.group('quote') == '"'
+
                     # Local includes or includes from dependent projects, recurse
                     if (is_local or include.partition('/')[0] in local_include_prefixes) and not include in local_includes_noexpand:
                         # A header corresponding to an implementation file

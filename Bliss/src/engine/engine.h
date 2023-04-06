@@ -1,3 +1,3 @@
-#pragma ACME path ./engine
+#pragma ACME path engine
 
 #include "entities/entities.h"

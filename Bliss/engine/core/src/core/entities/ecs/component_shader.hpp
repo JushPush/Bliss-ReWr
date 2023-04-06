@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma ACME path engine/entities/ecs
-
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -12,9 +10,11 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "component_transform.h"
+#include "component_transform.hpp"
 
-namespace Punji::Engine
+#include "../entity.hpp"
+
+namespace Punji::Core
 {
     class ShaderComponent : public Component {
     public:

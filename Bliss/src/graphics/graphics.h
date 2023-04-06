@@ -1,3 +1,3 @@
-#pragma ACME path ./graphics
+#pragma ACME path graphics
 
 #include "window.h"
