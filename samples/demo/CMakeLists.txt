@@ -1,8 +1,8 @@
 add_executable("DEMO" "main.cpp")
-target_link_libraries("DEMO" Bliss::Bliss)
+#target_link_libraries("DEMO" Bliss::Bliss)
 
 target_include_directories("DEMO" PRIVATE ${PROJECT_SOURCE_DIR}/external/include)
 target_include_directories("DEMO" PRIVATE ${PROJECT_SOURCE_DIR}/include)
 target_link_directories("DEMO" PRIVATE ${PROJECT_SOURCE_DIR}/external/lib)
 
-target_link_libraries("DEMO")
+#target_link_libraries("DEMO")

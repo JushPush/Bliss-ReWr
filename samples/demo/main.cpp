@@ -1,12 +1,12 @@
-#include <Bliss.h>
+//#include <Bliss.h>
 
-using namespace Punji;
+/*using namespace Punji;
 using namespace Punji::Graphics;
-using namespace Punji::Engine;
+using namespace Punji::Engine;*/
 
 int main(int argc, char* argv[]) {
 	//Punji::Graphics::Window window = Punji::Graphics::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
-	Window mainWindow = Window(0,0,800,600,"Bliss Demo",false);
+	/*Window mainWindow = Window(0,0,800,600,"Bliss Demo",false);
 
 	Camera camera = Camera();
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
 	entityTST->getComponent<TextureComponent>()->Unload();
 
-	mainWindow.Destroy();
+	mainWindow.Destroy();*/
 
 	return 1;
 }

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "component_mesh.hpp"
 
 namespace Punji::Core

@@ -242,8 +242,6 @@ namespace Punji::Engine {
     };
 }namespace Punji::Engine
 {
-    using namespace Punji;
-
     class TransformComponent : public Component {
     public:
         TransformComponent() {}

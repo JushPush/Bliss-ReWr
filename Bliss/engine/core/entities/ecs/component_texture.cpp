@@ -1,5 +1,3 @@
-#pragma once
-
 #include "component_texture.hpp"
 
 namespace Punji::Core

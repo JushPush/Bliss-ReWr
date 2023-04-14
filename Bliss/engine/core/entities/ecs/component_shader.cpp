@@ -1,5 +1,3 @@
-#pragma once
-
 #include "component_shader.hpp"
 
 namespace Punji::Core

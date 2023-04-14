@@ -1,6 +1,6 @@
 project(core)
 
-FILE(GLOB SOURCES
+FILE(GLOB_RECURSE SOURCES
     *.cpp
 	*.c
 )
