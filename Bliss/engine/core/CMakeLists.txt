@@ -1,8 +1,1 @@
-project(core)
-
-FILE(GLOB_RECURSE SOURCES
-    *.cpp
-	*.c
-)
-
-add_library(core ${SOURCES})
+amalgamate_headers(src/core.hpp bliss_core.hpp)

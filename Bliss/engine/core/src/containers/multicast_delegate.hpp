@@ -3,6 +3,7 @@
 #include "delegate.hpp"
 #include <list>
 #include <algorithm>
+#include <functional>
 
 namespace Punji::Core
 {

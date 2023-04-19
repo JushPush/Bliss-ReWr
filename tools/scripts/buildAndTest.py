@@ -39,8 +39,8 @@ def Build():
                 "cmake -B {}".format(Globals.build_folder) , 
                 "cmake --build {}".format(Globals.build_folder)
                 ]
-    with open(os.path.join(Globals.root_dir, "tools/scripts/generateSingleHeader.py")) as genhead:
-        exec(genhead.read())
+    #with open(os.path.join(Globals.root_dir, "tools/scripts/generateSingleHeader.py")) as genhead:
+    #    exec(genhead.read())
     
     if os.path.exists(Globals.build_dir):
         shutil.rmtree(Globals.build_dir)

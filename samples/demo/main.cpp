@@ -1,4 +1,5 @@
 //#include <Bliss.h>
+#include <bliss_core.hpp>
 
 /*using namespace Punji;
 using namespace Punji::Graphics;
