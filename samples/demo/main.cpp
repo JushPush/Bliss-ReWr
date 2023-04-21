@@ -1,11 +1,20 @@
 //#include <Bliss.h>
 #include <bliss_core.hpp>
+#include <bliss_graphics.hpp>
 
-/*using namespace Punji;
-using namespace Punji::Graphics;
-using namespace Punji::Engine;*/
+using namespace pji::Core;
+using namespace pji::Graphics;
 
 int main(int argc, char* argv[]) {
+	Window mainWindow = Window(0,0,800,600,"Bliss Demo",false);
+
+	mainWindow.Init();
+
+	while (!mainWindow.ShouldClose()) {
+		mainWindow.SwapBuffers();
+		glfwPollEvents();
+	}
+
 	//Punji::Graphics::Window window = Punji::Graphics::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
 	/*Window mainWindow = Window(0,0,800,600,"Bliss Demo",false);
 

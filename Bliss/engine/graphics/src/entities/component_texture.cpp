@@ -1,6 +1,6 @@
 #include "component_texture.hpp"
 
-namespace Punji::Core
+namespace Punji::Graphics
 {
     TextureComponent::TextureComponent(std::string fileName) {
         int width, height, numComponents;

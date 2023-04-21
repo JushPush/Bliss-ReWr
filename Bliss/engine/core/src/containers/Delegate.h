@@ -1,14 +1,15 @@
-#pragma once
-
-#include <memory>
-#include <new>
-#include <vector>
+#ifndef _DELEGATE_H
+#define _DELEGATE_H
 
 #include <functional>
 
-/// @brief I would never steal code that would be wrong and invalidate my skills
-namespace Punji::Core {
-    class DelegateBase {
+// Delegate.h
+// @see https://www.codeproject.com/Articles/5277036/Asynchronous-Multicast-Delegates-in-Modern-Cplusplus
+// David Lafreniere, Aug 2020.
+
+namespace DelegateLib {
+
+class DelegateBase {
 public:
     DelegateBase() = default;
     virtual ~DelegateBase() noexcept = default;
@@ -138,5 +139,6 @@ DelegateFree<RetType(Args...)> MakeDelegate(RetType(*func)(Args... args)) {
     return DelegateFree<RetType(Args...)>(func);
 }
 
-
 }
+
+#endif

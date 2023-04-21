@@ -1,6 +1,6 @@
 #include "component_shader.hpp"
 
-namespace Punji::Core
+namespace Punji::Graphics
 {
     ShaderComponent::ShaderComponent(std::string fileName) {
         program = glCreateProgram();

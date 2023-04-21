@@ -1,4 +1,7 @@
-#pragma once
+#ifndef COMPSHAD_HPP
+#define COMPSHAD_HPP
+
+#include <bliss_core.hpp>
 
 #include <iostream>
 #include <string>
@@ -10,13 +13,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "camera.hpp"
+
 #include "component_transform.hpp"
 
-#include "../entity.hpp"
-
-namespace Punji::Core
+namespace Punji::Graphics
 {
-    class ShaderComponent : public Component {
+    class ShaderComponent : public Punji::Core::Component {
     public:
         ShaderComponent(std::string fileName);
 
@@ -35,3 +38,6 @@ namespace Punji::Core
         void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const std::string& errorMessage);
     };
 }
+
+
+#endif

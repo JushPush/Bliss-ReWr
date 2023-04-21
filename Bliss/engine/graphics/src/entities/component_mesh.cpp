@@ -1,6 +1,6 @@
 #include "component_mesh.hpp"
 
-namespace Punji::Core
+namespace Punji::Graphics
 {
     MeshComponent::MeshComponent(std::string fileName)
     {

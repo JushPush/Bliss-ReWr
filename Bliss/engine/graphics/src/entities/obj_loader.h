@@ -1,4 +1,6 @@
 #pragma once
+#ifndef OBJLOAD_H
+#define OBJLOAD_H
 
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
@@ -46,3 +48,5 @@ private:
     glm::vec3 ParseOBJVec3(const std::string& line);
     OBJIndex ParseOBJIndex(const std::string& token, bool* hasUVs, bool* hasNormals);
 };
+
+#endif

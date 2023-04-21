@@ -50,8 +50,8 @@ def Build():
 def Run():
     #print(os.path.join(Globals.build_dir, "samples/demo/DEMO"))
 
-    if os.path.exists(os.path.join(Globals.build_dir, "samples/demo/DEMO")):
-        subprocess.run("./build/samples/demo/DEMO")
+    if os.path.exists(os.path.join(Globals.out_folder, "bin/DEMO")):
+        subprocess.run("./out/bin/DEMO")
     else:
         print("Executable does not exists I thinks. Exiting...\n")
 

@@ -1,12 +1,14 @@
-#pragma once
+#ifndef COMPMESH_HPP
+#define COMPMESH_HPP
+
+#include <bliss_core.hpp>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "../entity.hpp"
 #include "obj_loader.h"
 
-namespace Punji::Core
+namespace Punji::Graphics
 {
     enum MeshBufferPositions
     {
@@ -16,7 +18,7 @@ namespace Punji::Core
         INDEX_VB
     };
 
-    class MeshComponent : public Component {
+    class MeshComponent : public Punji::Core::Component {
     public:
         MeshComponent(std::string fileName);
         //MeshComponent(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
@@ -35,3 +37,5 @@ namespace Punji::Core
         void Render();
     };
 }
+
+#endif

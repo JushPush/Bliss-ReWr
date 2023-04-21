@@ -13,7 +13,7 @@ namespace Punji::Graphics
     {
     protected:
         int _x, _y, _width, _height; std::string _title;
-        bool _fullscreen, _minimized, _resizable;
+        bool _fullscreen, _minimized, _resizable, running;
         GLFWwindow* window;
 
         static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -59,6 +59,8 @@ namespace Punji::Graphics
 
         void SwapBuffers() { glfwSwapBuffers(window); glClearColor(0.0f,0.0f,0.0f,1.0f), glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); glLoadIdentity(); }
 
+        bool ShouldClose() { return glfwWindowShouldClose(window); }
+
         // TODO: put these into multicast delegates bc it's faster :) 
         virtual void OnCreate() {}
         virtual void OnDestroy() {}
@@ -67,7 +69,11 @@ namespace Punji::Graphics
         virtual void Update() {}
 
         int x() const {return _x;} int y() const {return _y;} int width() const {return _width;} int height() const {return _height;}
+        std::string title()const{return _title;}
+
 
         GLFWwindow* getWindow() { return window; }
+        bool isMinimized() { return _minimized; }
+        bool isRunning() { return running; }
     };
 }

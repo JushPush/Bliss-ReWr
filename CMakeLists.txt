@@ -2,10 +2,20 @@
 # and include sub-projects here.
 #
 cmake_minimum_required (VERSION 3.8)
+set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 include("${CMAKE_MODULE_PATH}/amalgamate_headers.cmake")
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/out/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/out/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/out/bin")
+
+include_directories(${CMAKE_SOURCE_DIR}/external/include)
+include_directories(${CMAKE_SOURCE_DIR}/out/include)
+link_directories(${CMAKE_SOURCE_DIR}/external/lib)
+link_directories(${CMAKE_SOURCE_DIR}/out/lib)
 
 set(BLISS_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(BLISS_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")

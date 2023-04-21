@@ -8,6 +8,7 @@ os.chdir('../../')
 
 class Globals:
     build_folder = "build"
+    out_folder = "out"
 
     root_dir = os.getcwd()
     build_dir = os.path.join(root_dir, build_folder)

@@ -1,6 +1,7 @@
-#pragma once
+#ifndef MODULE_HPP
+#define MODULE_HPP
 
-#include "../containers/multicast_delegate.hpp"
+#include "../containers/containers.hpp"
 
 namespace Punji::Core
 {
@@ -9,7 +10,10 @@ namespace Punji::Core
     public:
         Module() noexcept = default;
 
-        MulticastDelegate<void()> init_functions;
+        MulticastDelegate<void()> setup_functions;
         MulticastDelegate<void()> update_functions;
+        MulticastDelegate<void()> shutdown_functions;
     };
 }
+
+#endif

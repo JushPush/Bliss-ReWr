@@ -1,4 +1,8 @@
 #pragma once
+#ifndef ENTITY_HPP
+#define ENTITY_HPP
+
+#pragma ACME path entities
 
 #include <vector>
 #include <string>
@@ -58,22 +62,6 @@ namespace Punji::Core
     private:
         std::vector<Component*> components;
     };
-
-
-	class Camera : public Entity {
-	public:
-		Camera() {}
-
-		void Init() {}
-		void Update() {}
-		void Render() {}
-		//void Destroy() {}
-
-		~Camera() {}
-
-		glm::vec3 pos;
-		glm::vec3 forward;
-		glm::vec3 up;
-		glm::mat4 projection;
-	};
 }
+
+#endif

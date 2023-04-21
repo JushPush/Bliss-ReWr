@@ -1,8 +1,9 @@
-project(core)
+project(bliss_core)
 
 FILE(GLOB_RECURSE SOURCES
     *.cpp
 	*.c
+    *.inl
 )
 
-add_library(core ${SOURCES})
+add_library(bliss_core ${SOURCES})

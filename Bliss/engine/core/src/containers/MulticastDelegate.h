@@ -1,13 +1,13 @@
-#pragma once
+#ifndef _MULTICAST_DELEGATE_H
+#define _MULTICAST_DELEGATE_H
 
-#include "delegate.hpp"
+#include "Delegate.h"
 #include <list>
 #include <algorithm>
-#include <functional>
 
-namespace Punji::Core
-{
-    template <class R>
+namespace DelegateLib {
+
+template <class R>
 struct MulticastDelegate; // Not defined
 
 /// @brief Not thread-safe multicast delegate container class. The class has a linked  
@@ -64,4 +64,7 @@ private:
     /// List of registered delegates
     std::list<Delegate<RetType(Args...)>*> m_delegates;
 };
+
 }
+
+#endif

@@ -1,13 +1,17 @@
 #pragma once
+#ifndef COMPTRANS_HPP
+#define COMPTRANS_HPP
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "../entity.hpp"
+#include <bliss_core.hpp>
 
-namespace Punji::Core
+#include "camera.hpp"
+
+namespace Punji::Graphics
 {
-    class TransformComponent : public Component {
+    class TransformComponent : public Punji::Core::Component {
     public:
         TransformComponent() {}
         glm::vec3 pos;
@@ -21,6 +25,7 @@ namespace Punji::Core
 
         inline glm::mat4 GetModel() const
         {
+            
             glm::mat4 posMat = glm::translate(pos);
             glm::mat4 scaleMat = glm::scale(scale);
             glm::mat4 rotX = glm::rotate(rot.x, glm::vec3(1.0, 0.0, 0.0));
@@ -40,3 +45,5 @@ namespace Punji::Core
         }
     };
 }
+
+#endif

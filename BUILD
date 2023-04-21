@@ -20,7 +20,7 @@ while [ "$1" != "" ]; do
             exit
             ;;
         -r | --run)
-            ./build/samples/demo/DEMO
+            ./out/bin/DEMO
             exit
             ;;
         -b | --build)
