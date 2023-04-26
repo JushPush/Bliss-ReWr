@@ -9,6 +9,8 @@ int main(int argc, char* argv[]) {
 	Window mainWindow = Window(0,0,800,600,"Bliss Demo",false);
 
 	mainWindow.Init();
+	
+	Camera camera = Camera();
 
 	while (!mainWindow.ShouldClose()) {
 		mainWindow.SwapBuffers();
