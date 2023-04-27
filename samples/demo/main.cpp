@@ -12,40 +12,29 @@ int main(int argc, char* argv[]) {
 	
 	Camera camera = Camera();
 
+	Entity* etst = new Entity();
+
+	etst->addComponent<TransformComponent>();
+
+	etst->addComponent<TextureComponent>((std::string)"./res/bricks.jpg");
+	etst->addComponent<ShaderComponent>((std::string)"./res/basicShader");
+	etst->addComponent<MeshComponent>((std::string)"./res/teapot.obj");
+
+	etst->getComponent<TransformComponent>()->pos.z -= 1;
+
 	while (!mainWindow.ShouldClose()) {
 		mainWindow.SwapBuffers();
 		glfwPollEvents();
+
+		etst->getComponent<TextureComponent>()->Bind();
+		etst->getComponent<ShaderComponent>()->Bind();
+		etst->getComponent<ShaderComponent>()->Update(camera);
+		etst->getComponent<MeshComponent>()->Render();
 	}
 
-	//Punji::Graphics::Window window = Punji::Graphics::Window(0, 0, 800, 600, "Bliss Demo", false); //Punji::CreateWindow(0, 0, 800, 600, "Bliss Demo", false);
-	/*Window mainWindow = Window(0,0,800,600,"Bliss Demo",false);
+	etst->getComponent<TextureComponent>()->Unload();
 
-	Camera camera = Camera();
-
-	Entity* entityTST = new Entity();
-
-	entityTST->addComponent<TransformComponent>();
-
-	entityTST->getComponent<TransformComponent>()->pos.z -= 1;
-
-	entityTST->addComponent<TextureComponent>((std::string)"./res/bricks.jpg");
-	entityTST->addComponent<ShaderComponent>((std::string)"./res/basicShader");
-	entityTST->addComponent<MeshComponent>((std::string)"./res/teapot.obj");
-
-	while (!mainWindow.ShouldClose())
-	{
-		mainWindow.SwapBuffers();
-		glfwPollEvents();
-
-		entityTST->getComponent<TextureComponent>()->Bind();
-		entityTST->getComponent<ShaderComponent>()->Bind();
-		entityTST->getComponent<ShaderComponent>()->Update(camera);
-		entityTST->getComponent<MeshComponent>()->Render();
-	}
-
-	entityTST->getComponent<TextureComponent>()->Unload();
-
-	mainWindow.Destroy();*/
+	mainWindow.Destroy();
 
 	return 1;
 }

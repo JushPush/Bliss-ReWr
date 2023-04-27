@@ -27,9 +27,9 @@
 
 // {{includes}}
 
-#pragma ACME comments off
+#pragma PYCHAS comments off
 
-#pragma ACME path 
+#pragma PYCHAS path 
 
 #include "common/common.h"
 #include "graphics/graphics.h"

@@ -1,3 +1,3 @@
-#pragma ACME path graphics
+#pragma PYCHAS path graphics
 
 #include "window.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#pragma ACME path engine/entities/ecs
+#pragma PYCHAS path engine/entities/ecs
 
 #include <glm/glm.hpp>
 

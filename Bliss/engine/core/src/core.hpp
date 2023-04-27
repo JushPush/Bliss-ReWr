@@ -29,8 +29,8 @@
 
 // {{includes}}
 
-#pragma ACME path 
-#pragma ACME comments off
+#pragma PYCHAS path 
+#pragma PYCHAS comments off
 
 #include "containers/containers.hpp"
 #include "engine/engine.hpp"

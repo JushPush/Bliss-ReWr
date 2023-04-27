@@ -1,4 +1,4 @@
-#pragma ACME path engine/entities/ecs
+#pragma PYCHAS path engine/entities/ecs
 
 #include "component_mesh.h"
 #include "component_shader.h"

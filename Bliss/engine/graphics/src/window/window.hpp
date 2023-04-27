@@ -1,5 +1,5 @@
 #pragma once
-#pragma ACME path window
+#pragma PYCHAS path window
 
 #include <iostream>
 #include <string>

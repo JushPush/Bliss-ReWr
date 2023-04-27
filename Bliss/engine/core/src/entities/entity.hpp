@@ -2,7 +2,7 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-#pragma ACME path entities
+#pragma PYCHAS path entities
 
 #include <vector>
 #include <string>

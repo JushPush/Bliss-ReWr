@@ -1,6 +1,6 @@
 #pragma once
 
-#pragma ACME path engine/entities/ecs
+#pragma PYCHAS path engine/entities/ecs
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
